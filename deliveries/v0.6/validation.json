@@ -1,0 +1,18 @@
+{
+  "zipSha256": "d36e82adb40155a3574cf918d418ffdc611c66046f557817a3240caaf055dcdd",
+  "zipBytes": 7612782,
+  "originalPacketSha256": "d1990b0b219d3bf25e95e027585d8aa7d146c07de483415d08638a34c49c0a4f",
+  "entries": [
+    "install.cjs",
+    "update.ncp",
+    "README-FIRST.txt",
+    "validation.json"
+  ],
+  "archiveIntegrity": true,
+  "actualInstallerApply": true,
+  "idempotent": true,
+  "privateSettingsPreserved": true,
+  "rollback": true,
+  "corruptPayloadRejectedBeforeUpdate": true,
+  "containsOriginalFrozenPacket": true
+}
