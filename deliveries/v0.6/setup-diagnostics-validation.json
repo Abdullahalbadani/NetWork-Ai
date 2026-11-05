@@ -1,0 +1,17 @@
+{
+  "patchVersion": "0.6.1-setup-diagnostics",
+  "sourcePolicyTests": 4,
+  "standaloneBundledCli": true,
+  "dockerFailureStageAndExit": true,
+  "privateStderrAndPasswordRedacted": true,
+  "pendingResumePreserved": true,
+  "invalidInputStage": true,
+  "readyConfigurationPreserved": true,
+  "windowsActualPending": true,
+  "actualPatchApplied": true,
+  "repeatedApply": true,
+  "privateEnvAndPendingPreserved": true,
+  "rollbackByteExact": true,
+  "zipSha256": "329b0f2b793607c0c30c7d26e0bbe825830abcd07de19d21596c56ff3e9540ad",
+  "compressedSha256": "07cd75cf9931e5c857e34a34e2fca1bc7920cf1bb14920b12cbaa832684d875b"
+}

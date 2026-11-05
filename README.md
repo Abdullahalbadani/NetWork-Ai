@@ -21,3 +21,13 @@ The installer validates the unchanged frozen update, refuses unknown file edits 
 The archive contains source updates, a portable Node runtime and new Flutter cache packages. No user credentials, `.env`, Google API key, private configuration or router passwords are included.
 
 Backend tests: 61 passed. Flutter tests: 33 passed. Physical Windows/CHR/Gemini/Android acceptance remains required. The cloud APK build was blocked by an HTTP 403 policy denial for a Flutter dependency.
+
+## Setup diagnostics update 0.6.1
+
+A small tested setup-diagnostics update is in `deliveries/v0.6/copilot-setup-diagnostics-v0.6.1.zip`.
+
+ZIP SHA256: `329b0f2b793607c0c30c7d26e0bbe825830abcd07de19d21596c56ff3e9540ad`
+
+Extract into `D:\copilot-setup-diagnostics-v061` and run `node "D:\copilot-setup-diagnostics-v061\install.cjs" "D:\NetWork-Ai"`. Then retry normal owner setup. Send only the bounded `Setup diagnostic:` line if it fails.
+
+This update reports setup stage and known error/exit codes without raw error messages or private state. Windows private-directory grants use numeric token/SYSTEM SIDs. The root cause on the actual Windows computer is still being diagnosed. The update preserves private files and does not start or alter Docker containers while applying.
