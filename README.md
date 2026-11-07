@@ -1,3 +1,31 @@
+# Network Copilot 0.7 — مركز صحة الشبكة
+
+تحديث للمشروع القائم على Foundation 0.6: فحص RouterOS عند الطلب، دليل وتوصية لكل نتيجة، قياس RX/TX من عينات، إلغاء، سجل ومقارنة تقريرين، وشرح AI اختياري بعد المعاينة. هوية كحلية وسماوية وافتتاحية شبكية مشتركة للهاتف والويب. بيانات صور المعاينة اختبارية؛ القياس داخل التطبيق يُقرأ من الراوتر.
+
+[تنزيل حزمة 0.7](deliveries/v0.7/copilot-health-v0.7.zip) — نحو 1.1MB.
+
+[دليل التحديث والتشغيل والهاتف والرجوع](deliveries/v0.7/WINDOWS-AR.md) · [نتائج التحقق وحدودها](deliveries/v0.7/VALIDATION-AR.md) · [التحقق المنظم وبصمة الملف](deliveries/v0.7/validation.json)
+
+ZIP SHA256:
+
+```text
+34d19dbea9609d29634126743105815d99e0f08380513088424117ed8e4e3236
+```
+
+أوقف Node وFlutter، وأبقِ Docker وCHR يعملان. فك ZIP في D:\copilot-update-v07 ثم نفّذ في PowerShell:
+
+```powershell
+node "D:\copilot-update-v07\install.cjs" "D:\NetWork-Ai"
+cd "D:\NetWork-Ai"
+node ".\runtime\v06\scripts\upgrade-health-foundation.mjs"
+```
+
+ينشئ أمر الترقية نسخة بيانات مشفرة قبل إضافة جدولَي الفحص. المثبّت يحتفظ بنسخة الكود، ويحفظ الملفات الخاصة، ويرفض التعديل المحلي المجهول قبل الكتابة. لا تعِد إنشاء المالك أو إعداد المصادقة، ولا تمسح تطبيق الهاتف. لا تحتاج npm install أو تحديث أدوات التطوير؛ بناء الهاتف من الكاش القائم موثق في الدليل، وتثبيته يستخدم adb install -r.
+
+نجح 84 اختبار خادم و51 اختبار Flutter دون تخطٍ، وفحص التحليل، وترقية واستعادة ورجوع مختبري بقاعدة PostgreSQL فعلية، وتجربة حزمة التسليم على نسخ 0.6 و0.6.1 والإصلاح المعروف. تحقق Android شمل الموارد وإعداد Gradle offline؛ لم يُبنَ APK كامل في السحابة. قبول Windows وCHR والافتتاحية على الهاتف الفعلي ما زال مطلوبًا. اختبار الإنترنت غير متاح ضمن صلاحية القراءة الحالية؛ لا يُستنتج من اتصال الكمبيوتر. لم يُنشر خادم عام.
+
+---
+
 # Network Copilot 0.6 delivery
 
 This branch contains the tested update package for the existing Windows project at `D:\NetWork-Ai`. It is a code delivery package.

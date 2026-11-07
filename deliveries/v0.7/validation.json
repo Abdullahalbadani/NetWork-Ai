@@ -1,0 +1,175 @@
+{
+  "version": "health-v07",
+  "zip": "copilot-health-v0.7.zip",
+  "zipBytes": 1134497,
+  "zipSha256": "34d19dbea9609d29634126743105815d99e0f08380513088424117ed8e4e3236",
+  "payloadSha256": "9b63923b061adecc9ffb2200e448d7a1291047e61fa20c7fb10644687e398c6f",
+  "zipMembers": [
+    "README-FIRST.txt",
+    "install.cjs",
+    "update.ncp",
+    "validation.json",
+    "دليل-التحديث.md"
+  ],
+  "memberBytesVerified": true,
+  "validation": {
+    "version": "health-v07",
+    "reviewDate": "2026-11-08",
+    "timezone": "Asia/Aden",
+    "server": {
+      "tests": 84,
+      "passed": 84,
+      "failed": 0,
+      "skipped": 0,
+      "typescriptBuild": true,
+      "realPostgresIntegration": true,
+      "isolatedRuntime": true
+    },
+    "flutter": {
+      "tests": 51,
+      "passed": 51,
+      "failed": 0,
+      "analyzeIssues": 0,
+      "accountWireAndNativeTlsEnabled": true,
+      "widths": [
+        390,
+        1366
+      ],
+      "themes": [
+        "dark",
+        "light"
+      ]
+    },
+    "upgradeAndRollback": {
+      "frozenRuntime": true,
+      "upgradeCli": true,
+      "repeatedUpgradeIdempotent": true,
+      "preUpgradeEncryptedBackups": 1,
+      "privateConfigPreserved": true,
+      "accountsAndEncryptedSecretsPreserved": true,
+      "activeSessionPreserved": true,
+      "newRuntimeVerified": true,
+      "oldRuntimeRejectsNewSchema": true,
+      "rollbackViaOriginalRuntimeAndSeparateDatabase": true,
+      "rollbackSessionsRevoked": true,
+      "passed": true
+    },
+    "legacyBackupCompatibility": {
+      "legacySchema": 1,
+      "restoredSchema": 2,
+      "legacyTenantsPreserved": 26,
+      "restoredSessions": 0,
+      "healthReports": 0,
+      "runtimeRoleVerified": true,
+      "passed": true
+    },
+    "android": {
+      "resourcesCompiled": true,
+      "manifestAndResourcesLinked": true,
+      "gradleConfigurationOfflinePassed": true,
+      "fullApkBuiltInCloud": false,
+      "testedOnPhysicalAndroid": false,
+      "passed": true
+    },
+    "webStartup": {
+      "bootstrapContractOnly": true,
+      "fullFlutterWebEngineTested": false,
+      "newExternalRequests": 0,
+      "cases": [
+        {
+          "width": 390,
+          "height": 844,
+          "firstBackground": "rgb(4, 8, 18)",
+          "singleStartup": true,
+          "reducedMotion": true,
+          "removedOnFirstFlutterFrameEvent": true
+        },
+        {
+          "width": 1366,
+          "height": 768,
+          "firstBackground": "rgb(4, 8, 18)",
+          "singleStartup": true,
+          "reducedMotion": true,
+          "removedOnFirstFlutterFrameEvent": true
+        }
+      ],
+      "iconsRenderedFromSharedVector": true,
+      "passed": true
+    },
+    "performance": {
+      "source": "health-performance-result.json",
+      "routerTransportSimulated": true,
+      "requests": 1000,
+      "errors": 0,
+      "p95ms": 67.4729669999997,
+      "p99ms": 93.71808899999996,
+      "twoScansMs": 3420.594931,
+      "reportBytes": 31848,
+      "passed": true
+    },
+    "deliveryArchiveValidation": "Included separately as validation.json after archive tests",
+    "network": {
+      "dependenciesChanged": false,
+      "packageDownloadsThisPhase": 0,
+      "googleTestCalls": 0
+    },
+    "fieldAcceptance": {
+      "windowsInstall": false,
+      "realChrHealthScan": false,
+      "physicalAndroidColdStart": false,
+      "fullAndroidApkBuiltInCloud": false,
+      "fullFlutterWebEngineTested": false,
+      "androidUntrustedCertificate": false,
+      "limitedUserAcrossTwoSites": false,
+      "activeHotspotSession": false
+    },
+    "automatedChecksPassed": true,
+    "fieldAcceptanceComplete": false,
+    "package": {
+      "version": "health-v07",
+      "payloadSha256": "9b63923b061adecc9ffb2200e448d7a1291047e61fa20c7fb10644687e398c6f",
+      "payloadBytes": 1127177,
+      "changedFiles": 118,
+      "cases": [
+        {
+          "baseline": "v06",
+          "install": true,
+          "privateFilesPreserved": true,
+          "repeatIdempotent": true,
+          "exactCodeRollback": true
+        },
+        {
+          "baseline": "v061",
+          "install": true,
+          "privateFilesPreserved": true,
+          "repeatIdempotent": true,
+          "exactCodeRollback": true
+        },
+        {
+          "baseline": "known manual session header fix and local scaffolding",
+          "install": true,
+          "privateFilesPreserved": true,
+          "repeatIdempotent": true,
+          "exactCodeRollback": true
+        }
+      ],
+      "unknownLocalEditRejectedBeforeWrites": true,
+      "corruptPayloadRejectedBeforeWrites": true,
+      "runningApplicationRejectedBeforeWrites": true,
+      "packagePathWhitelist": true,
+      "passed": true
+    },
+    "payloadReview": {
+      "allowedFiles": 118,
+      "allFileDigestsMatch": true,
+      "privateKeyAndGoogleKeyPatternScan": true,
+      "knownPersonalIdentifierScan": true,
+      "environmentSecretsChecked": 0,
+      "passed": true
+    }
+  },
+  "archiveRoundTripInstallPassed": true,
+  "installedRuntimeImportsPassed": true,
+  "roundTripChangedFiles": 115,
+  "passed": true
+}
