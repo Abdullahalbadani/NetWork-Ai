@@ -1,0 +1,135 @@
+{
+  "version": "startup-network-20261113",
+  "reviewDate": "2026-11-13",
+  "timezone": "Asia/Aden",
+  "supportedBases": [
+    "original source handoff 0.7",
+    "0.7 with startup-fix-20261112 installed"
+  ],
+  "sourceVerification": {
+    "changedExistingFiles": [
+      "docs/current-status.md",
+      "apps/mobile/android/app/src/main/res/drawable/launch_background.xml",
+      "apps/mobile/android/app/src/main/res/values/styles.xml",
+      "apps/mobile/android/app/src/main/res/values-night/styles.xml",
+      "apps/mobile/android/app/src/main/res/drawable-v21/launch_background.xml"
+    ],
+    "newFiles": [
+      "apps/mobile/android/app/src/main/res/drawable/startup_network_mesh.xml",
+      "apps/mobile/android/app/src/main/res/drawable/startup_network_rings.xml",
+      "apps/mobile/android/app/src/main/res/drawable/startup_caption.xml",
+      "apps/mobile/android/app/src/main/res/drawable-land/startup_network_mesh.xml"
+    ],
+    "projectFiles": 9,
+    "androidResources": 8,
+    "documentationFiles": 1,
+    "dartUnchanged": true,
+    "backendAndRuntimeUnchanged": true,
+    "gradleWrapperBuildAndSigningConfigurationUnchanged": true,
+    "dependenciesUnchanged": true,
+    "dayAndNightLaunchAndNormalBackgroundsMatch": true,
+    "foregroundLogoAbsentFromNativePrelude": true,
+    "androidResourceCompileAndLinkPassed": true,
+    "fullAndroidApkBuilt": false,
+    "physicalAndroidAcceptancePerformed": false
+  },
+  "performed": {
+    "androidResources": {
+      "compiled": true,
+      "linked": true,
+      "aapt2": "9.0.1-14304508",
+      "platform": 36,
+      "minSdk": 24,
+      "portraitAndLandscape": true,
+      "dayAndNightBackgrounds": true,
+      "manifestFixture": true
+    },
+    "nativeArt": {
+      "points": 16,
+      "edges": 19,
+      "caption": "\u062c\u0627\u0631\u064d \u062a\u0647\u064a\u0626\u0629 \u0645\u0633\u0627\u062d\u0629 \u0627\u0644\u0639\u0645\u0644\u2026",
+      "captionFont": "Tajawal-Regular.ttf",
+      "captionGlyphs": 23,
+      "captionWidthDp": 142.282,
+      "captionHeightDp": 22.400000000000002,
+      "dartModified": false,
+      "foregroundLogoInAndroidLaunchBackground": false,
+      "previewsRenderedFromResourcePaths": true,
+      "previewsInspected": true,
+      "previewsAreDeviceScreenshots": false
+    },
+    "deliveryInstaller": {
+      "passed": true,
+      "host": "Linux/Node.js 24; native Windows execution remains required",
+      "actualArchiveRoundTrip": true,
+      "checks": {
+        "previous_update_backup_cannot_be_mistaken_for_this_update": true,
+        "after-first-update_actual_zip_install_nine_files_preserve_other_files_repeat_and_exact_rollback": true,
+        "original-v07_actual_zip_install_nine_files_preserve_other_files_repeat_and_exact_rollback": true,
+        "unknown-existing-edit_refused_before_any_write": true,
+        "unknown-new-resource_refused_before_any_write": true,
+        "bom_and_crlf_are_supported_and_original_bytes_restored": true,
+        "corrupt_payload_and_runner_are_refused_before_any_write": true,
+        "rollback_preserves_newer_local_edits": true,
+        "wrong_runtime_version_refused_before_any_write": true,
+        "write_failure_restores_every_prior_source_file_and_preserves_old_backups": true
+      }
+    }
+  },
+  "unchanged": {
+    "dart": true,
+    "backend": true,
+    "runtime": true,
+    "accountAndMfaCode": true,
+    "databaseCode": true,
+    "dependencies": true,
+    "gradleWrapper": true,
+    "gradleVersionUsed": "9.3.1 from existing local cache",
+    "signingConfiguration": true
+  },
+  "priorEvidence": {
+    "backendTests": {
+      "date": "2026-11-12",
+      "passed": 84,
+      "failed": 0,
+      "skipped": 0,
+      "isolatedPostgres": true,
+      "rerunForThisNativeResourceChange": false
+    },
+    "flutterTests": {
+      "reportedBeforeHandoff": 51,
+      "rerunInThisEnvironment": false
+    },
+    "phoneAcceptance": {
+      "reportedByUserOn": "2026-11-13",
+      "previousUpdateSessionRestored": true,
+      "previousUpdateHealthScanPassed": true,
+      "previousUpdateBackgroundResumePassed": true,
+      "firstUpdateIntroAccepted": false,
+      "firstUpdateIssue": "Empty navy interval before Flutter animation"
+    }
+  },
+  "limits": {
+    "fullAndroidApkBuiltHere": false,
+    "flutterTestsRerunHere": false,
+    "flutterSdkInstalledHere": false,
+    "windowsScriptsExecutedHere": false,
+    "newPreludeTestedOnPhysicalPhone": false,
+    "nativePreludeAnimatedBeforeFlutter": false,
+    "artificialDisplayDelayAdded": false,
+    "coldEngineStartupSpeedImprovementProven": false
+  },
+  "requiredPhoneAcceptance": [
+    "Network art and loading caption visible from starting window",
+    "No empty navy interval or white flash",
+    "Flutter identity appears once",
+    "No artificial wait",
+    "Session restoration",
+    "Health scan",
+    "Background resume",
+    "Light and dark modes",
+    "Reduced motion"
+  ],
+  "payloadSha256": "d6f1a6167fd87620306bfe1079362b3939faad19539a6fe52a930c81df0d779e",
+  "runnerSha256": "5200eeae9632710b9a36177fcd5db5d387f91cc8e2f9ab22dd9f1ffca9c0e5e3"
+}
