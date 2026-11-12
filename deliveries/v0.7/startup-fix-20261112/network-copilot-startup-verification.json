@@ -1,0 +1,88 @@
+{
+  "patch": "startup-20261112",
+  "sourceArchive": "copilot-handoff-20261112-224405-d20c2c.zip",
+  "sourceManifest": {
+    "files": 254,
+    "bytes": 8820922,
+    "allSizesAndSha256Match": true,
+    "zipCrcPassed": true
+  },
+  "changes": {
+    "androidResourceFiles": 4,
+    "documentationFiles": 3,
+    "files": [
+      "apps/mobile/android/app/src/main/res/drawable/launch_background.xml",
+      "apps/mobile/android/app/src/main/res/drawable-v21/launch_background.xml",
+      "apps/mobile/android/app/src/main/res/values/styles.xml",
+      "apps/mobile/android/app/src/main/res/values-night/styles.xml",
+      "README.md",
+      "START_HERE.md",
+      "docs/current-status.md"
+    ],
+    "gradleWrapperChanged": false,
+    "gradleCacheVersion": "9.3.1",
+    "dartChanged": false,
+    "backendChanged": false,
+    "databaseChanged": false,
+    "dependenciesChanged": false
+  },
+  "performed": {
+    "typescriptBuild": {
+      "passed": true
+    },
+    "serverTests": {
+      "tests": 84,
+      "passed": 84,
+      "failed": 0,
+      "skipped": 0,
+      "postgres": "18.3",
+      "isolatedDatabase": true,
+      "schemaVersion": 2,
+      "realRouter": false,
+      "googleCalls": 0
+    },
+    "androidResources": {
+      "compiled": true,
+      "linked": true,
+      "aapt2": "9.0.1-14304508",
+      "platform": 36,
+      "manifestFixture": true,
+      "fullApplicationApk": false
+    },
+    "deliveryInstaller": {
+      "passed": true,
+      "actualZipRoundTrip": true,
+      "checks": {
+        "actual_zip_install_seven_files_and_preserve_every_other_file": true,
+        "repeat_install_idempotent_one_backup": true,
+        "exact_original_bytes_rollback_including_private_fixtures": true,
+        "unknown_local_edit_refused_before_any_write": true,
+        "bom_crlf_update_and_byte_exact_rollback": true,
+        "corrupt_payload_and_runner_refused_before_any_write": true,
+        "rollback_preserves_newer_user_edits": true,
+        "rollback_rejects_backup_from_a_different_update": true
+      },
+      "host": "Linux/Node.js 24; native Windows execution remains required"
+    }
+  },
+  "notPerformed": {
+    "flutterTests": "Flutter SDK is not installed; the historical 51 tests were not rerun",
+    "windowsPowerShell": "Script prepared for the user; not executed on Windows here",
+    "fullAndroidApkBuild": true,
+    "physicalPhoneAcceptance": true,
+    "liveGoogleExplanation": true
+  },
+  "phoneAcceptanceRequired": [
+    "one animated identity",
+    "no separate static logo on Android 10",
+    "no white flash",
+    "no artificial delay",
+    "existing session or normal login",
+    "health scan",
+    "resume from background",
+    "light and dark themes",
+    "reduced motion"
+  ],
+  "payloadSha256": "a570572b22a8865a7b45464020e0d4ae9c9c9c54fcbb81e5dd0a46721c14edc6",
+  "runnerSha256": "5200eeae9632710b9a36177fcd5db5d387f91cc8e2f9ab22dd9f1ffca9c0e5e3"
+}
