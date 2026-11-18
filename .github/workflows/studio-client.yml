@@ -1,0 +1,58 @@
+name: Card studio client verification
+on:
+  push:
+    branches: [qa/card-studio-090-20261119]
+    paths: [verification/mobile-studio-source.zip, .github/workflows/studio-client.yml]
+permissions:
+  contents: read
+concurrency:
+  group: card-studio-client-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  client:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      CI: 'true'
+      FLUTTER_SUPPRESS_ANALYTICS: 'true'
+    steps:
+      - name: Read isolated verification branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify and unpack source-only fixture
+        shell: bash
+        run: |
+          echo '03d7d3760a8f59602ffea387087a44ce05cf0711bc6923e4a8bff6b4519dbd99  verification/mobile-studio-source.zip' | sha256sum --check
+          mkdir -p verification/client
+          unzip -q verification/mobile-studio-source.zip -d verification/client
+      - name: Use official Flutter 3.47.6 at a pinned commit
+        shell: bash
+        run: |
+          git clone --depth 1 --branch 3.47.6 https://github.com/flutter/flutter.git "$RUNNER_TEMP/copilot-flutter"
+          test "$(git -C "$RUNNER_TEMP/copilot-flutter" rev-parse HEAD)" = '5fc346839b5d0eef006ed8404392afb4dfae428d'
+          echo "$RUNNER_TEMP/copilot-flutter/bin" >> "$GITHUB_PATH"
+          "$RUNNER_TEMP/copilot-flutter/bin/flutter" config --no-analytics
+          "$RUNNER_TEMP/copilot-flutter/bin/flutter" --version
+      - name: Resolve the locked client dependencies
+        working-directory: verification/client
+        run: flutter pub get
+      - name: Analyze the actual client source
+        working-directory: verification/client
+        run: flutter analyze --no-pub
+      - name: Run client tests
+        working-directory: verification/client
+        run: flutter test --no-pub --reporter expanded
+      - name: Compile the browser client and JavaScript bridge
+        working-directory: verification/client
+        run: flutter build web --no-pub
+      - name: Compile Android code using Gradle 9.3.1
+        shell: bash
+        run: |
+          flutter precache --android
+          curl --fail --location --retry 2 --output "$RUNNER_TEMP/copilot-gradle.zip" https://services.gradle.org/distributions/gradle-9.3.1-bin.zip
+          curl --fail --location --retry 2 --output "$RUNNER_TEMP/copilot-gradle.sha256" https://services.gradle.org/distributions/gradle-9.3.1-bin.zip.sha256
+          printf '%s  %s\n' "$(cat "$RUNNER_TEMP/copilot-gradle.sha256")" "$RUNNER_TEMP/copilot-gradle.zip" | sha256sum --check
+          unzip -q "$RUNNER_TEMP/copilot-gradle.zip" -d "$RUNNER_TEMP/copilot-gradle"
+          printf 'sdk.dir=%s\nflutter.sdk=%s\n' "$ANDROID_HOME" "$RUNNER_TEMP/copilot-flutter" > verification/client/android/local.properties
+          "$RUNNER_TEMP/copilot-gradle/gradle-9.3.1/bin/gradle" --no-daemon --console=plain -Ptarget-platform=android-arm64 -PcopilotVersionName=0.9.0 -PcopilotVersionCode=11 --project-dir verification/client/android :app:compileDebugKotlin
