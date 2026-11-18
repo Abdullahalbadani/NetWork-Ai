@@ -2,7 +2,7 @@ name: Card studio client verification
 on:
   push:
     branches: [qa/card-studio-090-20261119]
-    paths: [verification/mobile-studio-source.zip, .github/workflows/studio-client.yml]
+    paths: [verification/mobile-studio-source.zip, verification/pdf-runtime-source.zip, .github/workflows/studio-client.yml]
 permissions:
   contents: read
 concurrency:
@@ -10,6 +10,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   client:
+    if: ${{ !contains(github.event.head_commit.message, '[pdf-only]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 35
     env:
@@ -56,3 +57,29 @@ jobs:
           unzip -q "$RUNNER_TEMP/copilot-gradle.zip" -d "$RUNNER_TEMP/copilot-gradle"
           printf 'sdk.dir=%s\nflutter.sdk=%s\n' "$ANDROID_HOME" "$RUNNER_TEMP/copilot-flutter" > verification/client/android/local.properties
           "$RUNNER_TEMP/copilot-gradle/gradle-9.3.1/bin/gradle" --no-daemon --console=plain -Ptarget-platform=android-arm64 -PcopilotVersionName=0.9.0 -PcopilotVersionCode=11 --project-dir verification/client/android :app:compileDebugKotlin
+
+  windows-pdf:
+    runs-on: windows-latest
+    timeout-minutes: 12
+    steps:
+      - name: Read isolated verification branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Use Node24 runtime
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - name: Verify and unpack compiled print fixture
+        shell: pwsh
+        run: |
+          $copilotZip = 'verification/pdf-runtime-source.zip'
+          $copilotHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $copilotZip).Hash.ToLowerInvariant()
+          if ($copilotHash -ne '9015f70d134dd1ccd5f05625cfc8b35a9c2facc48bc8eb154bdea0f76e9da3c9') { throw 'Print fixture hash mismatch' }
+          Expand-Archive -LiteralPath $copilotZip -DestinationPath verification/print-fixture
+      - name: Test actual Windows Chrome or Edge PDF rendering
+        working-directory: verification/print-fixture
+        shell: pwsh
+        run: |
+          node --use-env-proxy verify-pdf.mjs
+          if ($LASTEXITCODE -ne 0) { throw 'Windows PDF checks failed' }
