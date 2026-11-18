@@ -23,7 +23,7 @@ jobs:
       - name: Verify and unpack source-only fixture
         shell: bash
         run: |
-          echo '03d7d3760a8f59602ffea387087a44ce05cf0711bc6923e4a8bff6b4519dbd99  verification/mobile-studio-source.zip' | sha256sum --check
+          echo '5e1117cefa6ac124483b43e543bb47a341a59e3dd35254b9cfdbdebca41eefe3  verification/mobile-studio-source.zip' | sha256sum --check
           mkdir -p verification/client
           unzip -q verification/mobile-studio-source.zip -d verification/client
       - name: Use official Flutter 3.47.6 at a pinned commit
